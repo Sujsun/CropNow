@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CropNow Demo</title>
+</head>
+<style>
+</style>
+<body>
+	<h2>CropNow.js</h2>
+	<div>
+		<input id="file" type="file"></input>
+	</div>
+	<br><br><br>
+	<div>
+		Selected Image:
+		<br><br>
+		<img id="img">
+	</div>
+	<br><br><br>
+	<div>
+		Cropped Image:
+		<br><br>
+		<img id="preview-img">
+		<br><br><br><br><br><br>
+	</div>
+	
+	<script src="js/CropNow.js"></script>
+	<script src="js/SampleImage.js"></script>
+
+	<script>
+		var file = window.document.getElementById('file'),
+		    image = window.document.getElementById('img'),
+		    previewImage = window.document.getElementById('preview-img');
+
+		/**
+		 * Loading the sample image by default
+		 */
+		image.src = sampleImage;
+
+		/**
+		 * Creating options object
+		 */
+		var options = {};
+		options.file = file;
+		options.image = image;
+		options.previewImage = previewImage;
+		// options.ratio = {width: 1, height: 1};
+		// options.resize = {width: 400, height: 400};
+		// options.onCrop = function(base64String) {
+		// 	console.log('Image Cropped. Base64 String: ', base64String);
+		// };
+
+		/**
+		 * Using CropNow
+		 */
+		var cropNow = new CropNow(options);
+	</script>
+</body>
+</html>
