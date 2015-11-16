@@ -44,11 +44,11 @@
 		options.file = file;
 		options.image = image;
 		options.previewImage = previewImage;
-		// options.ratio = {width: 1, height: 1};
-		// options.resize = {width: 400, height: 400};
-		// options.onCrop = function(base64String) {
-		// 	console.log('Image Cropped. Base64 String: ', base64String);
-		// };
+		options.ratio = {width: 1, height: 1};
+		options.resize = {width: 400, height: 400};
+		options.onCrop = function(base64String) {
+			// console.log('Image Cropped. Base64 String: ', base64String);
+		};
 
 		/**
 		 * Using CropNow
