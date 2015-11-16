@@ -30,7 +30,6 @@ var base64URI = cropNow.getBase64();
 
 ## Doc
 
-Params
 Params         	| Type 			|  Description
 --------       	| --------------|-------------
 *file*         	|DOM Element	| `file` element from which image needs to be loaded
