@@ -382,13 +382,19 @@
          */
         attachEvent(options.image, 'load', function(event) {
             options.previewImage.src = options.image.src;
+            render()
+        });
+        /**
+         * Renders view
+         */
+        function render() {
             /**
              * Getting original size
              */
             options.originalSizeImage = getImageOriginalSize(options.image.src, function(originalImageSize) {
                 onOriginalImageSize(originalImageSize, options);
             });
-        });
+        }
         /**
          * Include Cropper CSS properties if it is not included already
          */
@@ -417,6 +423,7 @@
         return {
             getBase64: getBase64,
             getBlob: getBlob,
+            render: render
         };
     }
     /**
