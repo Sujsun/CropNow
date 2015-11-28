@@ -44,4 +44,5 @@ Methods
 var cropNow = new CropNow(params);
 ...
 var croppedBase64String = cropNow.getBase64();
+var croppedBlob = cropNow.getBlob();
 ```
