@@ -1,0 +1,21 @@
+{
+  "name": "CropNow",
+  "homepage": "https://github.com/Sujsun/CropNow",
+  "authors": [
+    "Sundarasan <s.n.sundarasan@gmail.com>"
+  ],
+  "description": "Image cropper using Canvas (can crop without uploading the image to server)",
+  "main": "js/CropNow.js",
+  "moduleType": [],
+  "keywords": [
+    "Cropper"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
