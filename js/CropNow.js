@@ -1,6 +1,8 @@
 /**
  * CropNow.js
  * Author: Sunndarasan Natarajan
+ * Date: 28/11/2015
+ * GIT: https://github.com/Sujsun/CropNow.git
  */
 (function(root) {
     var localObject = {};
@@ -75,11 +77,11 @@
                 return !1
             };
             var i = t(e, "position");
-            i == "static" && (e.style.position = "relative"), e.style.width = this.width + "px", e.style.height = this.height + "px", this.container = e, this.isWrapped = true
+            i == "static" && (e.style.position = "relative"), e.style.width = this.width + "px", e.style.height = this.height + "px", this.container = e, this.image.isWrapped = true
         }, s.prototype.unWrapImage = function() {
-            if(this.isWrapped) {
+            if(this.image.isWrapped) {
                 this.image.parentNode.parentNode.replaceChild(this.image, this.image.parentNode);
-                this.isWrapped = false;
+                this.image.isWrapped = false;
             }
         }, s.prototype.createCropArea = function(e) {
             var t = document.createElement("div");
@@ -532,10 +534,19 @@
             options.previewImage.width = originalImageSize.width;
             options.previewImage.height = originalImageSize.height;
         }
-        if (options.cropper) {
-            options.cropper.unWrapImage();
-        }
+        unwrapImage(options);
         options.cropper = attachCropperEvent(options);
+    }
+    /**
+     * Unwraps the image
+     * @param  {Object} options
+     * @return {undefined}
+     */
+    function unwrapImage(options) {
+        if(options.image.isWrapped) {
+            options.image.parentNode.parentNode.replaceChild(options.image, options.image.parentNode);
+            options.image.isWrapped = false;
+        }
     }
     /**
      * Gets original size of image
