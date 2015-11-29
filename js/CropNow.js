@@ -326,6 +326,12 @@
             localObject.dataURLtoBlob = dataURLtoBlob;
         }
     }(window));
+    
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    }
 
     /*---------------- Cropper Ends ------------------*/
     /**
@@ -355,6 +361,7 @@
             };
         })());
         options = options || {};
+        options._id = s4();
         options.isNewImage = true;
         options.previewImage || (options.previewImage = {});
         options.resizedRatio = {};
@@ -381,8 +388,10 @@
          * Attaching image load event listener
          */
         attachEvent(options.image, 'load', function(event) {
-            options.previewImage.src = options.image.src;
-            render()
+            if(options.image.getAttribute('cropnow-id') === options._id) {
+                options.previewImage.src = options.image.src;
+                render();
+            }
         });
         /**
          * Renders view
@@ -503,6 +512,7 @@
         fileReader.onloadend = function(event) {
             var base64String = event.target.result;
             options.image.src = base64String;
+            options.image.setAttribute('cropnow-id', options._id);
         };
         fileReader.readAsDataURL(options.file.files[0]);
     }
